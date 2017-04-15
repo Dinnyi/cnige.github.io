@@ -40,9 +40,11 @@ class App extends React.Component {
                 {/*<Link to="/" activeClassName="active" onlyActiveOnIndex={true}>Home</Link>*/}
                 <IndexLink to="/" activeStyle={{color: 'red'}}>首页</IndexLink>
                 <strong> - | - </strong>
-                <Link to={`/tv?orderBy=${query}`} activeStyle={{color: 'red'}}>TV</Link>
+                <Link to={`tv?orderBy=${query}`} activeStyle={{color: 'red'}}>TV</Link>
                 <strong> - | - </strong>
-                <Link to="/movies" activeStyle={{color: 'red'}}>Movies</Link>
+                <Link to="movies" activeStyle={{color: 'red'}}>Movies</Link>
+                <strong> - | - </strong>
+                <Link to="welcome" activeStyle={{color: 'red'}}>Welcome</Link>
                 <hr/>
 
                 {/*this.props.children 指向 IndexRoute */}
