@@ -1,0 +1,9 @@
+[
+  {"stuName":"小乐", "stuSex":"女", "age":18, "height":165, "weight":45, "_id":2},
+  {"stuName":"老刘", "stuSex":"男", "age":35, "height":180, "weight":80, "_id":0},
+  {"stuName":"童童", "stuSex":"女", "age":22, "height":171, "weight":60, "_id":6},
+  {"stuName":"默默", "stuSex":"男", "age":26, "height":175, "weight":70, "_id":1},
+  {"stuName":"老王", "stuSex":"女", "age":18, "height":170, "weight":50, "_id":3},
+  {"stuName":"小李", "stuSex":"女", "age":38, "height":166, "weight":50, "_id":4},
+  {"stuName":"童童", "stuSex":"男", "age":30, "height":175, "weight":65, "_id":5}
+]
