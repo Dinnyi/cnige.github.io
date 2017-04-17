@@ -7,33 +7,14 @@
 import React from 'react'
 import { Select } from 'antd';
 const Option = Select.Option;
-import StuList from  './StuList'
 
 
 class StuSex extends React.Component {
 
     handleChange (value) {
 
-        //console.log(`selected ${value}`);
-
-/*        let messageSex = [];
-        let newMeg =[];
-
-        if ( value == 0 ) {
-            messageSex = this.props.origin;
-        }
-
-
-
-        this.props.origin.forEach( (message, key) => {
-
-            if ( message.stuSex == value ) {
-
-                messageSex.push(message);
-
-            }
-
-        });*/
+        console.log(`selected ${value}`);
+        console.log(this.props.filterData);
 
         this.props.onSexChange(value)
 

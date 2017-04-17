@@ -10,32 +10,7 @@ const Option = Select.Option;
 
 class StuName extends React.Component {
 
-
     handleChange (value) {
-
-/*        let messageName = [];
-        let newMeg = [];
-
-        //console.log(this)
-
-        if ( value == 0 ) {
-
-            messageName = this.props.origin;
-
-        }else{
-
-            this.props.origin.forEach( (message, key) => {
-
-
-                if ( message.stuName == value ){
-
-                    messageName.push(message)
-
-                }
-
-            })
-
-        }*/
 
         this.props.onNameChange(value)
 

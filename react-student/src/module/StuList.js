@@ -56,11 +56,13 @@ class StuList extends React.Component {
 
         //console.log(stuHead);
 
+        let isNone = !!this.props.data.length ? 'none' : 'block';
+        let isBlock = !!this.props.data.length ? 'block' : 'none';
 
         return (
             <div>
                 <h3>学员详情列表</h3>
-                <table>
+                <table style={{display: isBlock}}>
                     <thead>
                         <StuHead title={stuHead}/>
                     </thead>
@@ -69,6 +71,8 @@ class StuList extends React.Component {
                         {StuItemNode}
                     </tbody>
                 </table>
+
+                <p style={{display: isNone}}>无符合要求的学员</p>
             </div>
         )
     }

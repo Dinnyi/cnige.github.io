@@ -9,6 +9,7 @@ import StuSex from './StuSex'
 import StuName from './StuName'
 import StuList from  './StuList'
 import $ from 'jquery'
+import PubSub from 'pubsub-js'
 
 class StuBox extends React.Component {
     constructor (props) {
@@ -46,21 +47,19 @@ class StuBox extends React.Component {
             error: (xhr, status, error) => {
                 console.log(`xhr: ${xhr} / ${error} / ${xhr.status}`)
             }
-        })
+        });
 
-        console.log(this)
+        // console.log(this)
 
     }
 
     handleSexChange (SexVal) {
 
-
-
         this.setState({
             sexVal: SexVal
         });
 
-        //console.log(this.state.sexVal)
+        //console.log(this.state.sexVal);
 
         setTimeout( () => {
 
@@ -70,14 +69,13 @@ class StuBox extends React.Component {
 
         })
 
-
     }
 
     handleNameChange (NameVal) {
 
         this.setState({
             nameVal: NameVal
-        })
+        });
 
         setTimeout( () => {
 
@@ -91,7 +89,7 @@ class StuBox extends React.Component {
 
     updateData () {
 
-        console.log(this)
+        console.log(this);
 
         let newData = [];
 
@@ -137,10 +135,6 @@ class StuBox extends React.Component {
 
         }
 
-
-
-
-
         console.log(newData);
 
         this.setState({
@@ -149,15 +143,41 @@ class StuBox extends React.Component {
 
     }
 
+    componentDidMount () {
+
+        PubSub.subscribe('delItem', function (evName, _id) {
+
+            //console.log(_id)
+            //console.log(this)
+            let newData =  this.state.data.filter ( (value, index) => {
+
+                return  value._id != _id;
+
+
+            });
+
+            //console.log(newData)
+
+            this.setState({
+                data: newData,
+                origin: newData
+            })
+
+        }.bind(this))
+
+    }
+
     render () {
+
+        console.log(this.state.sexVal);
 
         return (
             <div>
                 <h1>学员信息表</h1>
                 <br/>
-                <StuSex onSexChange={this.handleSexChange.bind(this)}/>
+                <StuSex onSexChange={this.handleSexChange.bind(this)} />
                 <br/>
-                <StuName onNameChange={this.handleNameChange.bind(this)}/>
+                <StuName onNameChange={this.handleNameChange.bind(this)} />
                 <br/>
                 <StuList data={this.state.data} />
             </div>

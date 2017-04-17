@@ -5,8 +5,15 @@
 'use strict';
 
 import React from 'react'
+import PubSub from 'pubsub-js'
+
 
 class StuItem extends React.Component {
+
+    delItem () {
+        PubSub.publish('delItem', this.props.id)
+    }
+
     render () {
         return (
             <tr>
@@ -16,7 +23,7 @@ class StuItem extends React.Component {
                 <td>{this.props.age}</td>
                 <td>{this.props.height}</td>
                 <td>{this.props.weight}</td>
-                <td><a href="">修改</a></td>
+                <td><a href="javascript:;" onClick={this.delItem.bind(this)}>删除</a></td>
             </tr>
         )
     }
